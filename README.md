@@ -18,19 +18,6 @@ flowchart LR
     style EB fill:#FF9900,stroke:#333,stroke-width:1px,color:#fff
     style Lambda fill:#FF9900,stroke:#333,stroke-width:1px,color:#fff
     style Webhook fill:#4A154B,stroke:#333,stroke-width:1px,color:#fff
-*(※ 改行文字 `\n` や日本語が含まれるラベル部分を `""`（ダブルクォーテーション）で囲む形式に修正し、より構文エラーが起きにくい形式に整えました。)*
-
----
-
-### 保存してGitHubへ送信するコマンド
-
-`README.md` を保存（`Ctrl` + `S`）したら、PowerShellで以下のコマンドだけを実行します。
-
-```
-powershell
-git add README.md
-git commit -m "fix: Correct Mermaid diagram syntax in README"
-git push
 
 ## 特徴・工夫した点
 1. **完全コード化（IaC）:** インフラリソースの作成からIAM権限の付与まで、すべてTerraformで管理・自動化。
