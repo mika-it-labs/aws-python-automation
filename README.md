@@ -8,7 +8,16 @@ AWS Lambda、Python、Terraform（IaC）を使用して、指定したWebサイ�
 - **Compute:** AWS Lambda (Python 3.12)
 - **Scheduler:** Amazon EventBridge (毎日定時実行)
 - **Notification:** Incoming Webhook (Slack / LINE)
+```mermaid
+flowchart LR
+    EB["Amazon EventBridge (スケジュール実行)"] -->|トリガー| Lambda["AWS Lambda (Python 3.12)"]
+    Lambda -->|データチェック| Site["対象Webサイト (ステータス確認)"]
+    Lambda -->|POSTリクエスト| Webhook["Incoming Webhook (Slack / LINE)"]
 
+    style EB fill:#FF9900,stroke:#333,stroke-width:1px,color:#fff
+    style Lambda fill:#FF9900,stroke:#333,stroke-width:1px,color:#fff
+    style Webhook fill:#4A154B,stroke:#333,stroke-width:1px,color:#fff
+```
 ## 特徴・工夫した点
 1. **完全コード化（IaC）:** インフラリソースの作成からIAM権限の付与まで、すべてTerraformで管理・自動化。
 2. **無償枠での運用:** サーバーレス構成を採用し、ランニングコスト0円で運用可能。
